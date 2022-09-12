@@ -5,7 +5,7 @@ from flask_cors import CORS, cross_origin
  
 app = Flask(__name__)
 #conecion con mysql
-app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://georsan:2182028@localhost/web'
+app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://valeryA26:2191916@localhost/web'
 #para que no de error
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 CORS(app, supports_credentials=True)
