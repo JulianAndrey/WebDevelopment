@@ -12,7 +12,37 @@ $estudiantes = Estudiante::obtener();
         <a href="formulario_registro_estudiante.php" class="btn btn-info my-2">Nuevo</a>
     </div>
     <div class="col-12 table-responsive">
-        <table class="table table-bordered">
+    <?php
+            if (isset($_GET['mensaje']) and $_GET['mensaje']=='editado') {
+        ?>  
+        <div class="alert alert-success alert-dismissible fade show" role="alter">
+        <strong>¡Cambiado!</strong> El estudiante fue editado.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>    
+        </div>
+        <?php      
+            }
+        ?>
+        <?php
+            if (isset($_GET['mensaje']) and $_GET['mensaje']=='guardado') {
+        ?>  
+        <div class="alert alert-success alert-dismissible fade show" role="alter">
+        <strong>¡Cambiado!</strong> El estudiante fue ingresado.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>    
+        </div>
+        <?php      
+            }
+        ?>
+        <?php
+            if (isset($_GET['mensaje']) and $_GET['mensaje']=='eliminado') {
+        ?>  
+        <div class="alert alert-warning alert-dismissible fade show" role="alter">
+        <strong>¡Cambiado!</strong> El estudiante fue eliminado.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>    
+        </div>
+        <?php      
+            }
+        ?>
+            <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>Nombre</th>
@@ -38,7 +68,7 @@ $estudiantes = Estudiante::obtener();
                             </a>
                         </td>
                         <td>
-                            <a href="eliminar_estudiante.php?id=<?php echo $estudiante["id"] ?>" class="btn btn-danger">
+                            <a onclick="return confirm('Estas seguro de eliminar?')" href="eliminar_estudiante.php?id=<?php echo $estudiante["id"] ?>" class="btn btn-danger">
                                 Eliminar
                             </a>
                         </td>
@@ -48,5 +78,3 @@ $estudiantes = Estudiante::obtener();
         </table>
     </div>
 </div>
-
-
